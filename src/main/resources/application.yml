@@ -1,0 +1,28 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://keycloak.jad.localhost/realms/jad-dev
+          jwk-set-uri: http://keycloak.edc-v.svc.cluster.local/realms/jad-dev/protocol/openid-connect/certs
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 20MB
+  mongodb:
+    host: localhost
+    port: 27017
+    database: file_db
+    username: admin
+    password: password
+    authentication-database: admin
+siglet:
+  jwks:
+    uri: http://siglet:8080/keys
+  token:
+    issuer: siglet-issuer
+keycloak:
+  token:
+    claims:
+      participant-id: participant_context_id
